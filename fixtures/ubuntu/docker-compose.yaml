@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  test_sshd:
+    image: zssh/ubuntu-ssh
+    container_name: test_sshd
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "20000:22"
+    volumes:
+      - ../keys/authorized_keys:/root/.ssh/authorized_keys
